@@ -11,10 +11,8 @@ class Snake:
     animal = 'Snake'
     BirthYear = 0
     DeathYear = -1
-    DeathBy = ' '
     nextBirth = -1
-    hunts = 0
-    
+
     # Parameterized constructor
     def __init__(self, time): 
         self.BirthYear = time
@@ -53,10 +51,8 @@ class Hawk:
     animal = 'Hawk'
     BirthYear = 0
     DeathYear = -1
-    DeathBy = ' '
     nextBirth = -1
-    hunts = 0
-    
+
     # Parameterized constructor
     def __init__(self, time): 
         self.BirthYear = time
@@ -96,7 +92,6 @@ class Rabbit:
     BirthYear = 0
     DeathYear = -1
     nextBirth = -1
-    DeathBy = ' '
     
     # Parameterized constructor
     def __init__(self, time): 
@@ -127,7 +122,7 @@ class Rabbit:
 
     #deletes the object
     def __del__(self):
-        myString = ("A Hawk has died after {:d} years.\n".format(self.DeathYear - self.BirthYear))
+        myString = ("A Rabbit has died after {:d} years.\n".format(self.DeathYear - self.BirthYear))
         return myString
 
 #Simulation Class
@@ -277,9 +272,6 @@ class Simulation:
     
 #GUI Class
 class Window(QMainWindow):
-    
-    
-    
     #Fonts
     timeFont = QtGui.QFont("Times", 24, QtGui.QFont.Bold)
     btnFont = QtGui.QFont("Times", 18, QtGui.QFont.Bold)
@@ -369,7 +361,7 @@ class Window(QMainWindow):
     #Advance time button Clicked
     def time_click(self):
         self.timeLabel.setText('Loading')
-        self.sim.advanceTime(50)
+        self.sim.advanceTime(30)
         self.timeLabel.setText('Year: {:d}'.format(self.sim.time))
         self.display_stats()
     
